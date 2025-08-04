@@ -10,5 +10,6 @@ class Player(Character):
 
     @staticmethod
     def create_player():
-        name = input("Введите имя персонажа: ")
+        #name = input("Введите имя персонажа: ")
+        name = "serenity"
         return Player(name = name, hp=100, dmg=10)
