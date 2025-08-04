@@ -21,6 +21,23 @@ class GameState:
 
         print("shluha sluha shluha")
 
+    def update_world(self):
+        self.locname, self.locdescription = self.world.add_location()
+        self.loc = self.locname, self.locdescription
+        return self.loc
+
+    def update_item(self):
+        self.item = Item(self.world)
+        return self.item.itemname, self.item.itemeffect
+
+    def update_enemy(self):
+        self.enemy = Enemy(self.world, self.item)
+        return self.enemy.ename, self.enemy.ehp, self.enemy.edmg
+
+    def update_quest(self):
+        self.quest = Quest(self.world, self.enemy, self.item)
+        return self.quest.questn, self.quest.questdesc
+
 
     def move_player(self, player_poss: int) -> str:
 
